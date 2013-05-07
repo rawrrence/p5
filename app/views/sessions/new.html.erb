@@ -1,0 +1,20 @@
+<h3>Log In</h3>
+
+<br><br>
+<div class="row">
+  <div class="span3">
+    <%= simple_form_for :sessions, :url => sessions_path do |f| %>
+      <fieldset>
+
+        <%= f.input :email %>
+        <%= f.input :password %>
+        
+        <div class="form-actions">
+          <%= f.submit "Log In", :class => 'btn btn-primary' %> &nbsp;
+          <%= link_to 'Cancel', home_path, :class => 'btn' %>
+        </div>
+      </fieldset>
+    <% end %>
+
+  </div>
+</div>

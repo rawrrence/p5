@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :date_of_birth, :rank, :phone, :waiver_signed, :active, :user_attributes
+  attr_accessible :first_name, :last_name, :date_of_birth, :rank, :phone, :waiver_signed, :active, :user_attributes, :user
 
   # Constants
   RANKS = [['Tenth Gup', 1],['Ninth Gup', 2],['Eighth Gup', 3],['Seventh Gup', 4],['Sixth Gup', 5],
