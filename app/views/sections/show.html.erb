@@ -4,6 +4,73 @@
 		<%= render :partial => "section_details" %>
 		<p class="supertiny">&nbsp;</p>
 		<%# render :partial => "register_student_for_section" %>
+		<br>
+		<br>
+		<div class="row">
+			<div class="span4">
+				<h3>Section Standings</h3>
+		  	<% if @section.tournament.date > Date.today %>
+		  		<b>Standings will be available for edit when the tournament day comes!</b>
+		  	<% else %>
+		  		<% if @section.registrations.empty? %>
+		  			<b>There were no participants!</b>
+		  		<% else %>
+			  		<table class="table table-striped">
+			    		<thead>
+			      		<tr>
+			      			<th>Standing</th>
+			      			<th>Student</th>
+			      		</tr>
+			      	</thead>
+			      	<tbody>
+			    			<% if @section.registrations.count > 0 %>
+			      			<tr>
+			      				<td class="centered">1</td>
+			      				<td>
+			      					<% rank1 = @section.registrations.find_by_final_standing(1) %>
+			      					<% if rank1 != nil %>
+												<%= link_to rank1.student.proper_name, student_path(rank1.student.id) %>
+											<% else %>
+												Pending
+											<% end %>
+										</td>
+									</tr>
+									<% if @section.registrations.count > 1 %>
+										<tr>
+				      				<td class="centered">2</td>
+				      				<td>
+				      					<% rank2 = @section.registrations.find_by_final_standing(2) %>
+				      					<% if rank1 != nil %>
+													<%= link_to rank2.student.proper_name, student_path(rank2.student.id) %>
+												<% else %>
+													Pending
+												<% end %>
+											</td>
+										</tr>
+										<% if @section.registrations.count > 2 %>
+											<tr>
+					      				<td class="centered">3</td>
+					      				<td>
+					      					<% rank3 = @section.registrations.find_by_final_standing(3) %>
+					      					<% if rank3 != nil %>
+														<%= link_to rank3.student.proper_name, student_path(rank3.student.id) %>
+													<% else %>
+														Pending
+													<% end %>
+												</td>
+											</tr>
+										<% end %>
+									<% end %>
+								<% end %>
+							</tbody>
+						</table>
+					<% end %>
+				<% end %>
+				<% if @section.tournament.date <= Date.today %>
+			  	<%= link_to raw("<i class='icon-star' ></i> Edit Standings"), edit_standings_path(@section), :class => 'btn btn-info' %>&nbsp;&nbsp;
+			  <% end %>
+			</div>
+		</div>
 	</div>
 	<div class="span5">
 	  <h3>Students Registered</h3>

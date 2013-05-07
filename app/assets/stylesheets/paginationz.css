@@ -1,11 +1,11 @@
 .digg_pagination {
   background: white;
-	font-size: 95%;
-	line-height: 1;
+  font-size: 95%;
+  line-height: 1;
   cursor: default;
   /* self-clearing method: */ }
 .gap {
-	line-height: 2.25;
+  line-height: 2.25;
 }
 .digg_pagination a, .digg_pagination span, .digg_pagination em {
   padding: 0.1em 0.3em;

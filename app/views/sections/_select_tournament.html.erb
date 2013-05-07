@@ -1,0 +1,4 @@
+<%= simple_form_for :tournament, :url => 'sections/for_tournament/:id', :html => { :class => 'form' } do |f| %>	
+		<%= f.input :tournament_id, :label => 'Narrow Your Results', :collection => Tournament.active, :required => false %>
+		<%= link_to "Go", for_tournament_path(), :class => 'btn btn-primary' %>
+<% end %>

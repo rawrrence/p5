@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="span8">
+		<h3>Tournament Details</h3>
+		<p>
+      <b>Name:</b> <%= @tournament.name %>
+    </p>
+
+    <p> 
+      <b>Date:</b> <%= @tournament.date %>
+    </p>
+
+    <p>
+      <b>Ranks:</b> <%= rank_range_for(@tournament) %>
+    </p>
+
+    <p>
+      <b>Active:</b> <%= @tournament.active ? "Yes" : "No" %>
+    </p>
+
+	</div>
+  <div class="span4">
+    <h3>Sections</h3>
+    <% if @sections.empty? %>
+      &nbsp;&nbsp;<em>None at this time</em>
+    <% else %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Ranks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sections.each do |s| %>
+            <tr>
+              <td><%= link_to s.event.name, section_path(s) %></td>
+              <td><%= rank_range_for(s) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="flickr_pagination">
+        <div clas="page_info">
+          <%= page_entries_info @sections %>
+        </div>
+        <%= will_paginate @sections, :previous_label => "← Previous&nbsp;", :next_label => "&nbsp;Next →" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-list'></i> Display All tournaments"), tournaments_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit tournament"), edit_tournament_path(@tournament), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete tournament"), tournament_path(@tournament), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

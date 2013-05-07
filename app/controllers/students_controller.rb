@@ -9,14 +9,18 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     # @dojo_history = @student.dojo_students.chronological.all
     @registrations = @student.registrations.by_event_name.paginate(:page => params[:page]).per_page(10)
-  end
+  end 
   
   def new
     @student = Student.new
+    @student.build_user
   end
 
   def edit
     @student = Student.find(params[:id])
+    if @student.user.nil?
+      @student.build_user
+    end
   end
 
   def create

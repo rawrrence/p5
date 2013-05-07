@@ -5,8 +5,13 @@ Karate67272::Application.routes.draw do
   resources :registrations
   resources :sections
   resources :students
+  resources :dojos
+  resources :tournaments
   
   # Semi-static page routes
+  match 'sections/:id/update_standings' => 'sections#update_standings', :as => :update_standings
+  match 'sections/:id/edit_standings' => 'sections#edit_standings', :as => :edit_standings
+  match 'sections/for_tournament/:id' => 'sections#for_tournament', :as => :for_tournament
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact

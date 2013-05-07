@@ -1,0 +1,148 @@
+.navbar-inner {
+  background-color: #2c2c2c; /* fallback color, place your own */
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+
+  /* IE8-9 gradient filter */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  margin-right:8px;
+}
+
+.glyphw{
+    background-image: url(/assets/glyphicons-halflings.png);
+}
+
+.form-actions {
+  background-color:#F5F5F5;
+  border-top-color:#E5E5E5;
+  border-top-style:solid;
+  border-top-width:1px;
+  margin-bottom:18px;
+  margin-top:18px;
+  padding:17px 20px 18px;
+}
+
+legend {
+  border-bottom-color:#E5E5E5;
+  border-bottom-style:solid;
+  border-width:0 0 1px;
+  color:#888888;
+  display:block;
+  font-size:21px;
+  line-height:36px;
+  margin-bottom:18px;
+  padding:0;
+  width:100%;
+}
+
+.simple_form div.input {
+  margin-bottom: 15px;
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+
+.table-bordered {
+  border-bottom-color:#79dcea;
+  border-right-color:#DDDDDD;
+  border-top-color:#79dcea;
+}
+
+.table th, .table td {
+  border-top-color:#79dcea;
+  line-height:25px;
+  padding:8px;
+  text-align:left;
+  vertical-align:top;
+}
+
+.navbar .nav > li > a{
+  text-shadow: none;
+}
+
+.navbar .brand {
+  text-shadow: none;
+}
+
+footer, #footer {
+     margin-top: 17px;
+     padding-top: 17px;
+     border-top: 2px solid #79dcea;
+     border-bottom: 2px solid #79dcea;
+     background-color:#BBBBBB;
+     text-align: center;
+}
+
+/*.span4 > div, .span8 > div
+{
+   background-color:#eee;
+   border: 1px solid #79dcea;
+   border-radius:3px;
+}*/
+
+h4 {
+  display:inline;
+  color:#666666;
+}
+
+h3 {
+  display:inline;
+}
+
+.btn {
+  horizontal-align:middle;
+}
+
+.alert-success {
+  background-color:#bbbbbb;
+  border-color:#79dcea;
+  color:#F9F9F9;
+}
+
+.alert {
+  text-shadow:rgba(60, 60, 60, 0.498039) 0 1px 0;
+}
+
+
+.pagination ul > li > a, .pagination ul > li > span {
+  background-color:#F9F9F9;
+}
+
+.pagination {
+  background-color: #F9F9F9
+  margin:8px 0;
+}
+
+.flickr_pagination a {
+  background-color: #F9F9F9
+  border:2px solid #BBBBBB;
+  color:#BF7841;
+  text-decoration:none;
+}
+
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+  background-color: #F9F9F9
+  padding:0.2em 0.5em;
+}
+
+.flickr_pagination .current {
+  color:#FF0084;
+  font-style:normal;
+  font-weight:bold;
+}
+
+.flickr_pagination {
+  background-color: #F9F9F9
+  cursor:default;
+  text-align:center;
+}
+
+`

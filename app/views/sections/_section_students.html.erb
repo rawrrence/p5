@@ -9,6 +9,8 @@
         <th>Name</th>
   			<th>Rank</th>
   			<th>Age</th>
+        <th>Fee Paid?</th>
+        <th>&nbsp;</th>
   			<th>&nbsp;</th>
       </tr>
     </thead>
@@ -18,6 +20,8 @@
           <td><%= link_to student.name, student_path(student) %></td>
           <td><%= rank_name(student.rank)  %></td>
           <td class="centered"><%= student.age %></td>
+          <td><%= @section.registrations.find_by_student_id(student.id).fee_paid ? "Yes" : "No" %>
+          <td><%= link_to "Edit", edit_registration_path(@section.registrations.find_by_student_id(student.id)), :class => 'btn' %>
           <td><%= link_to raw("<i class='icon-remove'></i>"), registration_path(Registration.for_student(student.id).for_section(@section.id).first), :method => 'delete', :confirm => 'Are you sure?' %>
         </tr>
       <% end %>

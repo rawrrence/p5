@@ -3,6 +3,7 @@
     <tr>
       <th>Event</th>
 			<th class="centered">Place</th>
+      <th>Fee Paid?</th>
     </tr>
   </thead>
   <tbody>
@@ -10,8 +11,24 @@
       <tr>
         <td><%= link_to registration.event.name, section_path(registration.section.id) %></td>
 				<td class="centered">
-				  --
-				</td>
+          <% if registration.section.tournament.date > Date.today %>
+            Upcoming
+          <% else %>
+            <% if registration.final_standing.nil? %>
+              <% statement = "Pending" %>
+              <% registration.section.registrations.each do |r| %>
+                <% if r.final_standing != nil %>
+                  <% statement = "Did Not Place" %>
+                <% end %>
+              <% end %>
+              <%= statement %>
+            <% else %>
+              <%= registration.final_standing %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= registration.fee_paid ? "Yes" : "No" %></td>
+        <td><%= link_to "Edit", edit_registration_path(registration), :class => 'btn' %></td>
       </tr>
     <% end %>
   </tbody>

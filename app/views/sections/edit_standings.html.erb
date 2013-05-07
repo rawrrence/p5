@@ -1,0 +1,23 @@
+<%= form_tag(update_standings_path(@section.id)) do %>
+		<legend>Edit Standings For <%= @section.event.name %></legend>
+
+		<% if @registrations.count == 0 %>
+			<h4>No students registered for this section!</h4>
+		<% end %>
+		<% if @registrations.count > 0 %>
+		First Place: <%= select_tag "student1", options_for_select(@students.collect{ |s| [s.name, s.id] }), :prompt => "" %><br>
+		<% end %>
+		<% if @registrations.count > 1 %>
+		Second Place: <%= select_tag "student2", options_for_select(@students.collect{ |s| [s.name, s.id] }), :prompt => "" %><br>
+		<% end %>
+		<% if @registrations.count > 2 %>
+		Third Place: <%= select_tag "student3", options_for_select(@students.collect{ |s| [s.name, s.id] }), :prompt => "" %><br>
+		<% end %>
+		<%= hidden_field_tag "count", @registrations.count %>
+
+		<div class="form-actions">
+      <%= submit_tag 'Save', :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', section_path(@section.id), :class => 'btn' %>
+    </div>
+<% end %>	
+
